@@ -1,0 +1,8 @@
+{
+    "name": "generateToken",
+    "param": {
+        "email": "m.com",
+        "pass": "pass1"
+    }
+
+}
