@@ -28,16 +28,23 @@ class API extends REST{
     {
         $email=$this->validateParams('email',$this->param['email'],"STRING"); //required is not neccessary cos we have a default true
         $pass=$this->validateParams('pass',$this->param['pass'],"STRING"); //required is not neccessary cos we have a default true
-        
         $user=new USER();
-        if($user->register()){
-
+    
             try{
                 echo $token=$this->getBearerToken();
+                $payload=JWT::decode($token,SECRET_KEY,['HS256']);
+                print_r($payload);
+                if(!$user->register($email,$pass)){
+                    $msg="Insert Failed";
+                }
+                else{
+                    $msg="Insert Successful";
+                }
+                $this->returnResponse(SUCCESSS_RESPONSE,$msg  );
             }catch(Exception $e){
                 $this->throwError(ACCESS_TOKEN_ERRORS,$e->getMessage());
             }
-        }
+        
     }
 
 }

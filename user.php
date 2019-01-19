@@ -13,7 +13,7 @@ class USER
     public function register($email,$pass)
     {   
         try{            
-            $stmt = $this->connection->prepare("INSERT INTO users(email,pass) 
+            $stmt = $this->connection->prepare("INSERT INTO users(email,password) 
 			                                             VALUES(:b,:c)");
             $stmt->bindparam(":b", $email);
             $stmt->bindparam(":c", $pass);

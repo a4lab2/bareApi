@@ -16,6 +16,8 @@ define('API_NAME_REQUIRED',115);
 define('API_PARAM_REQUIRED',116);
 define('API_DEST_NOT_EXIST',117);
 define('INVALID_USER_PASS',118);
+define('INVALID_USER',119);
+
 
 // success
 define('SUCCESSS_RESPONSE',200);
